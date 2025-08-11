@@ -8,7 +8,9 @@ services:
     networks:
       - blog-networks
     volumes:
-      - ./src:/var/www/html
+      - ./src:/var/www/html/src
+      - ./vendor:/var/www/html/vendor
+      - ./index.php:/var/www/html/index.php
     depends_on:
       - db
 
