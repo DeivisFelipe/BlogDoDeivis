@@ -1,6 +1,8 @@
 <?php
 
-import config\Database;
+require_once __DIR__ . '/vendor/autoload.php';
+
+use 
 
 $db = new Database();
 $connection = $db->getConnection();
