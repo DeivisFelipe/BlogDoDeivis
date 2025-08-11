@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use 
+use Config\Database;
 
 $db = new Database();
 $connection = $db->getConnection();
