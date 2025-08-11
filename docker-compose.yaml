@@ -1,0 +1,35 @@
+
+services:
+  blog:
+    build: .
+    container_name: blog_container
+    ports:
+      - "8081:80"
+    networks:
+      - blog-networks
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    container_name: db_container
+    networks:
+      - blog-networks
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: blog
+
+networks:
+  blog-networks:
+    driver: bridge
+
+volumes:
+  blog-data:
+    driver: local
+  db-data:
+    driver: local
